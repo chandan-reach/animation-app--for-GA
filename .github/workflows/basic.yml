@@ -5,11 +5,11 @@ name: Flask Docker CI
 on:
   push:
     branches:
-      - main
+      - fake
 
   pull_request:
     branches:
-      - main
+      - fake
 
 jobs:
   docker-build:
