@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Visualization</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            padding: 25px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+        }
+
+        header h2 {
+            color: #38bdf8;
+        }
+
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 65px 20px 30px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            color: #94a3b8;
+            font-size: 17px;
+        }
+
+        .visualization {
+            height: 420px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .circle {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #38bdf8, #6366f1);
+            box-shadow: 0 0 50px #38bdf8;
+            animation: pulse 2s infinite alternate;
+            z-index: 2;
+        }
+
+        .orbit {
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border: 2px solid #38bdf8;
+            border-radius: 50%;
+            animation: rotate 8s linear infinite;
+        }
+
+        .orbit:nth-child(2) {
+            width: 380px;
+            height: 380px;
+            border-color: #6366f1;
+            animation-duration: 12s;
+        }
+
+        .orbit:nth-child(3) {
+            width: 480px;
+            height: 480px;
+            border-color: #0ea5e9;
+            animation-duration: 16s;
+        }
+
+        .particle {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #38bdf8;
+            border-radius: 50%;
+            top: 0;
+            left: 50%;
+            box-shadow: 0 0 20px #38bdf8;
+        }
+
+        @keyframes pulse {
+            from {
+                transform: scale(0.85);
+                opacity: 0.7;
+            }
+
+            to {
+                transform: scale(1.15);
+                opacity: 1;
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 30px 8% 60px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 25px;
+            width: 250px;
+            border-radius: 15px;
+            border: 1px solid #334155;
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 10px 30px #0ea5e955;
+        }
+
+        .card h3 {
+            color: #38bdf8;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #64748b;
+            border-top: 1px solid #334155;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .visualization {
+                height: 350px;
+            }
+
+            .orbit:nth-child(3) {
+                width: 320px;
+                height: 320px;
+            }
+
+            .orbit:nth-child(2) {
+                width: 260px;
+                height: 260px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>AnimX</h2>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Animations</a>
+            <a href="#">About</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Explore <span>Creative Animations</span></h1>
+        <p>Experience motion, creativity and interactive visual effects.</p>
+    </section>
+
+    <section class="visualization">
+
+        <div class="orbit">
+            <div class="particle"></div>
+        </div>
+
+        <div class="orbit">
+            <div class="particle"></div>
+        </div>
+
+        <div class="orbit">
+            <div class="particle"></div>
+        </div>
+
+        <div class="circle"></div>
+
+    </section>
+
+    <section class="cards">
+
+        <div class="card">
+            <h3>01. Pulse Animation</h3>
+            <p>Creates a continuous scaling effect using CSS keyframes.</p>
+        </div>
+
+        <div class="card">
+            <h3>02. Rotation</h3>
+            <p>Creates smooth circular motion using CSS transforms.</p>
+        </div>
+
+        <div class="card">
+            <h3>03. Hover Effects</h3>
+            <p>Displays smooth transitions when hovering over elements.</p>
+        </div>
+
+    </section>
+
+    <footer>
+        Animation Visualization | Built with Flask, HTML and CSS
+    </footer>
+
+</body>
+</html>
